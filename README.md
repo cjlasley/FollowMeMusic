@@ -1,6 +1,5 @@
 # Follow Me Music
 An OpenCV project where servos with speakers attached to them turn to track people in the room.
-
 ___
 
 ## MVP:
@@ -8,8 +7,7 @@ ___
 * Interfaces with Python code on Mac
 * Only controls volume via distance
 
-
-### Continuing
+### Continuing:
 * Interface with Amazon Alexa for multiple speaker control
 * Build IOS and Android apps that have OpenCV on them, use them as camera to track distance
 
@@ -17,6 +15,7 @@ ___
 * Integrate with Raspberry Pi
 * Have Pi control servos and turn servos towards the person each is tracking
 
+### [ZenHub Kanban Board](https://app.zenhub.com/workspace/o/cjlasley/followmemusic/boards?repos=129161238)
 
 ## Technical
 * Apps for IOS and Android will be developed using Flutter, a Dart based mobile development API
