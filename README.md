@@ -2,6 +2,15 @@
 An OpenCV project where servos with speakers attached to them turn to track people in the room.
 ___
 
+## Flutter Test App Installed and Working:
+- [x] Ryan
+- [x] Tristan
+- [ ] Collin
+- [ ] Chris
+- [ ] Thatcher
+- [ ] Brandon
+- [ ] Rachel
+
 ## MVP:
 * Single Bluetooth speaker
 * Interfaces with Python code on Mac
