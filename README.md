@@ -9,7 +9,7 @@ ___
 - [ ] Chris
 - [ ] Thatcher
 - [ ] Brandon
-- [ ] Rachel
+- [x] Rachel
 
 ## MVP:
 * Single Bluetooth speaker
