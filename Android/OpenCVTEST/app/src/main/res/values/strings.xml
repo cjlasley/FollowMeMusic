@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">OpenCVTEST</string>
+    <string name="btnGallery">Photo Gallery</string>
+    <string name="btnGray">Grayscale</string>
+</resources>

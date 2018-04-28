@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- XML JavaCameraView Initialization -> used in MainActivity.java -->
+    <org.opencv.android.JavaCameraView
+        android:id="@+id/myCameraView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:show_fps="true" />
+
+    <Button
+        android:id="@+id/btnGallary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="openGallery"
+        android:layout_marginBottom="48dp"
+        android:layout_marginStart="31dp"
+        android:text="@string/btnGallery" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btnGallary"
+        android:onClick="convertToGrayscale"
+        android:layout_marginEnd="33dp"
+        android:text="@string/btnGray" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="151dp"
+        android:layout_height="158dp"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="133dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+</RelativeLayout>
