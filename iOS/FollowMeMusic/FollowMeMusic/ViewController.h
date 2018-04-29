@@ -6,9 +6,19 @@
 //  Copyright © 2018 clasley. All rights reserved.
 //
 
+#include <opencv2/opencv.hpp>
+#include <opencv2/videoio/cap_ios.h>
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    IBOutlet UIImageView *cameraImageView;
+    IBOutlet UIButton    *dankButton;
+    
+    CvVideoCamera *videoCamera;
+}
+
+- (IBAction)dankButtonPressed: (id)sender;
 
 
 @end

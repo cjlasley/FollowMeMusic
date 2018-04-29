@@ -16,13 +16,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    videoCamera = [[CvVideoCamera alloc] initWithParentView:cameraImageView];
+    videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
+    videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
+    videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+    videoCamera.defaultFPS = 30;
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)dankButtonPressed: (id)sender
+{
+    
 }
 
 

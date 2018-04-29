@@ -14,6 +14,19 @@
 		F01BEE1E207EDD8200131EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F01BEE1D207EDD8200131EB6 /* Assets.xcassets */; };
 		F01BEE21207EDD8200131EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01BEE1F207EDD8200131EB6 /* LaunchScreen.storyboard */; };
 		F01BEE2C207EDD8200131EB6 /* FollowMeMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE2B207EDD8200131EB6 /* FollowMeMusicTests.m */; };
+		F0C572442095CA4900EACDBF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572432095CA4900EACDBF /* opencv2.framework */; };
+		F0C572452095CA4D00EACDBF /* opencv2.framework in Resources */ = {isa = PBXBuildFile; fileRef = F0C572432095CA4900EACDBF /* opencv2.framework */; };
+		F0C572482095CAB700EACDBF /* MotionTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0C572472095CAB700EACDBF /* MotionTracker.mm */; };
+		F0C5724B2095D0C000EACDBF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5724A2095D0C000EACDBF /* Accelerate.framework */; };
+		F0C5724D2095D0C600EACDBF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5724C2095D0C600EACDBF /* AssetsLibrary.framework */; };
+		F0C5724F2095D0CA00EACDBF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5724E2095D0CA00EACDBF /* AVFoundation.framework */; };
+		F0C572512095D0D000EACDBF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572502095D0D000EACDBF /* CoreGraphics.framework */; };
+		F0C572532095D0D600EACDBF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572522095D0D600EACDBF /* CoreImage.framework */; };
+		F0C572552095D0DC00EACDBF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572542095D0DC00EACDBF /* CoreMedia.framework */; };
+		F0C572572095D0E200EACDBF /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572562095D0E100EACDBF /* CoreVideo.framework */; };
+		F0C572592095D0E900EACDBF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572582095D0E900EACDBF /* QuartzCore.framework */; };
+		F0C5725B2095D0EF00EACDBF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5725A2095D0EF00EACDBF /* UIKit.framework */; };
+		F0C5725D2095D0F500EACDBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5725C2095D0F500EACDBF /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +45,7 @@
 		F01BEE14207EDD8200131EB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F01BEE15207EDD8200131EB6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F01BEE17207EDD8200131EB6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F01BEE18207EDD8200131EB6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F01BEE18207EDD8200131EB6 /* ViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = ViewController.m; sourceTree = "<group>"; };
 		F01BEE1B207EDD8200131EB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F01BEE1D207EDD8200131EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F01BEE20207EDD8200131EB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +53,19 @@
 		F01BEE27207EDD8200131EB6 /* FollowMeMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FollowMeMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01BEE2B207EDD8200131EB6 /* FollowMeMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowMeMusicTests.m; sourceTree = "<group>"; };
 		F01BEE2D207EDD8200131EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0C572432095CA4900EACDBF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		F0C572462095CAB700EACDBF /* MotionTracker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = MotionTracker.h; sourceTree = "<group>"; };
+		F0C572472095CAB700EACDBF /* MotionTracker.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = MotionTracker.mm; sourceTree = "<group>"; };
+		F0C5724A2095D0C000EACDBF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		F0C5724C2095D0C600EACDBF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		F0C5724E2095D0CA00EACDBF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F0C572502095D0D000EACDBF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F0C572522095D0D600EACDBF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F0C572542095D0DC00EACDBF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F0C572562095D0E100EACDBF /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		F0C572582095D0E900EACDBF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F0C5725A2095D0EF00EACDBF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F0C5725C2095D0F500EACDBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +73,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C5725D2095D0F500EACDBF /* Foundation.framework in Frameworks */,
+				F0C5725B2095D0EF00EACDBF /* UIKit.framework in Frameworks */,
+				F0C572592095D0E900EACDBF /* QuartzCore.framework in Frameworks */,
+				F0C572572095D0E200EACDBF /* CoreVideo.framework in Frameworks */,
+				F0C572552095D0DC00EACDBF /* CoreMedia.framework in Frameworks */,
+				F0C572532095D0D600EACDBF /* CoreImage.framework in Frameworks */,
+				F0C572512095D0D000EACDBF /* CoreGraphics.framework in Frameworks */,
+				F0C5724F2095D0CA00EACDBF /* AVFoundation.framework in Frameworks */,
+				F0C5724D2095D0C600EACDBF /* AssetsLibrary.framework in Frameworks */,
+				F0C5724B2095D0C000EACDBF /* Accelerate.framework in Frameworks */,
+				F0C572442095CA4900EACDBF /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +103,7 @@
 				F01BEE10207EDD8200131EB6 /* FollowMeMusic */,
 				F01BEE2A207EDD8200131EB6 /* FollowMeMusicTests */,
 				F01BEE0F207EDD8200131EB6 /* Products */,
+				F0C572492095D0C000EACDBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +119,13 @@
 		F01BEE10207EDD8200131EB6 /* FollowMeMusic */ = {
 			isa = PBXGroup;
 			children = (
+				F0C572432095CA4900EACDBF /* opencv2.framework */,
 				F01BEE14207EDD8200131EB6 /* AppDelegate.h */,
 				F01BEE15207EDD8200131EB6 /* AppDelegate.m */,
 				F01BEE17207EDD8200131EB6 /* ViewController.h */,
 				F01BEE18207EDD8200131EB6 /* ViewController.m */,
+				F0C572462095CAB700EACDBF /* MotionTracker.h */,
+				F0C572472095CAB700EACDBF /* MotionTracker.mm */,
 				F01BEE1A207EDD8200131EB6 /* Main.storyboard */,
 				F01BEE1D207EDD8200131EB6 /* Assets.xcassets */,
 				F01BEE1F207EDD8200131EB6 /* LaunchScreen.storyboard */,
@@ -109,6 +150,23 @@
 				F01BEE2D207EDD8200131EB6 /* Info.plist */,
 			);
 			path = FollowMeMusicTests;
+			sourceTree = "<group>";
+		};
+		F0C572492095D0C000EACDBF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0C5725C2095D0F500EACDBF /* Foundation.framework */,
+				F0C5725A2095D0EF00EACDBF /* UIKit.framework */,
+				F0C572582095D0E900EACDBF /* QuartzCore.framework */,
+				F0C572562095D0E100EACDBF /* CoreVideo.framework */,
+				F0C572542095D0DC00EACDBF /* CoreMedia.framework */,
+				F0C572522095D0D600EACDBF /* CoreImage.framework */,
+				F0C572502095D0D000EACDBF /* CoreGraphics.framework */,
+				F0C5724E2095D0CA00EACDBF /* AVFoundation.framework */,
+				F0C5724C2095D0C600EACDBF /* AssetsLibrary.framework */,
+				F0C5724A2095D0C000EACDBF /* Accelerate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +213,7 @@
 		F01BEE06207EDD8200131EB6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = clasley;
 				TargetAttributes = {
 					F01BEE0D207EDD8200131EB6 = {
@@ -194,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C572452095CA4D00EACDBF /* opencv2.framework in Resources */,
 				F01BEE21207EDD8200131EB6 /* LaunchScreen.storyboard in Resources */,
 				F01BEE1E207EDD8200131EB6 /* Assets.xcassets in Resources */,
 				F01BEE1C207EDD8200131EB6 /* Main.storyboard in Resources */,
@@ -214,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C572482095CAB700EACDBF /* MotionTracker.mm in Sources */,
 				F01BEE19207EDD8200131EB6 /* ViewController.m in Sources */,
 				F01BEE16207EDD8200131EB6 /* AppDelegate.m in Sources */,
 				F01BEE13207EDD8200131EB6 /* main.m in Sources */,
@@ -267,7 +327,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -275,7 +337,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -293,6 +359,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -314,7 +381,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -322,7 +391,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -334,6 +407,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -350,7 +424,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FollowMeMusic",
+				);
 				INFOPLIST_FILE = FollowMeMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = clasley.FollowMeMusic;
@@ -362,7 +441,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FollowMeMusic",
+				);
 				INFOPLIST_FILE = FollowMeMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = clasley.FollowMeMusic;
@@ -415,6 +499,7 @@
 				F01BEE32207EDD8300131EB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F01BEE33207EDD8300131EB6 /* Build configuration list for PBXNativeTarget "FollowMeMusicTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +508,7 @@
 				F01BEE35207EDD8300131EB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
