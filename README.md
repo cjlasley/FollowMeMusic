@@ -17,6 +17,13 @@ ___
 
 ### [ZenHub Kanban Board](https://app.zenhub.com/workspace/o/cjlasley/followmemusic/boards?repos=129161238)
 
+### Development:
+
+#### Core Algorithm:
+The core algorithm consists of a Python script that uses the openCV and zBar libraries to detect, locate, and read a QR code and then find the distance between this and a detected moving object. Motion detection is done by subtracting two subsequent frames and then applying filters to get the longest changing contour lines. The average cumulative midpoint of all of the boxes around the contours are used as the center point of the moving object. At this point, a 2 dimensional distance can be obtained between the QR code and detected object. However, since these exist in a 3 dimensional plane, the Z-distance to both objects are also obtained. This is done by using knowledge of the focal length and sensor height of the camera and then getting a ratio of the actual size (or estimated actual size) of the QR code and human compared to their perceived size in the picture. With all 3 dimensions now obtained, a 3 dimensional distance between the two objects can be calculated and the nearest QR code is given a red dot in its center, as shown below.
+
+![QR To Moving Object Spatial Distance](README_Media/qrToMovementTracking.gif)
+
 ## Technical
 * Apps for IOS and Android will be developed using Flutter, a Dart based mobile development API
   > Check out [Flutter's homepage](https://flutter.io/) for more information
@@ -27,20 +34,20 @@ ___
 ### Installation
 * You will need to do the following:
 1. Install Flutter:
-    
+
     > [Windows](https://flutter.io/setup-windows/)
     >
     > [Mac](https://flutter.io/setup-macos/)
     >
     > [Linux](https://flutter.io/setup-linux/#update-your-path)
-    
+
 2. Download Android Studio:
-    
+
     > [Windows | Mac | Linux](https://developer.android.com/studio/index.html#downloads)
-    
+
   2.1 You may be prompted to install NTK and CMAKE after you create your first project
-    
-    
+
+
 ### Helpful Tips/Resources
 * Android device emulation can be performed within Android Studio, so you do not need a physical device to test basic app        features. However, keep in mind that we will be using a series of image bounding boxes to measure distances, which may require a physical device to use the camera. I haven't looked into this yet. The other method would be to have a sequence of images preloaded onto the emulator that OpenCV could process.
     > Check out the [Create and Manage Virtual Devices](https://developer.android.com/studio/run/managing-avds.html) documentation for more device emulation details
