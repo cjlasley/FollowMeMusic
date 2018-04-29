@@ -123,64 +123,74 @@ if __name__ == '__main__':
     photos.append(cv2.imread("qr_test/closeSwitch5.jpg"))
     # photos.append(cv2.imread("qr_test/mouse3.jpg"))
 
-    prevFrame = None
-    firstFrame = None
-    first = True
-    # while True:
-    for i in range(0, len(photos)):
-        # gotFrame, frame = camera.read()
-        gotFrame, frame = True, photos[i]
-        if not gotFrame:
+    exitKey = False
+    while True:
+        if exitKey:
             break
+        prevFrame = None
+        firstFrame = None
+        first = True
+        closestQR = {'distance': 0, 'data': '', 'location': (0, 0)}
+        for i in range(0, len(photos)):
+            time.sleep(0.25)
+            # gotFrame, frame = camera.read()
+            gotFrame, frame = True, photos[i]
+            if not gotFrame:
+                break
 
-        frame = imutils.resize(frame, width=500)
-        person_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        person_gray = cv2.GaussianBlur(person_gray, (21, 21), 0)
+            frame = imutils.resize(frame, width=500)
+            person_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            person_gray = cv2.GaussianBlur(person_gray, (21, 21), 0)
 
-        if prevFrame is None:
-            firstFrame = frame
-            prevFrame = person_gray
-            cv2.imshow("QR To Human", frame)
-            continue
-
-        frameDiff = cv2.absdiff(prevFrame, person_gray)
-        personThreshold = cv2.threshold(frameDiff, 60, 255, cv2.THRESH_BINARY)[1]
-        personThreshold = cv2.dilate(personThreshold, None, iterations=2)
-
-        _, personContours, _ = cv2.findContours(personThreshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
-        maxWidth, maxHeight = 0, 0
-        personX, personY = 0, 0
-        avgMidX = 0
-        avgMidY = 0
-        for contour in personContours:
-            if cv2.contourArea(contour) < minContourSize:
+            if prevFrame is None:
+                firstFrame = frame
+                prevFrame = person_gray
+                cv2.imshow("QR To Human", frame)
                 continue
-            (person_x, person_y, p_width, p_height) = cv2.boundingRect(contour)
-            # if p_width * p_height > maxWidth * maxHeight:
-            maxWidth, maxHeight = p_width, p_height
-            personX, personY = person_x, person_y
-            avgMidX += personX + maxWidth/2
-            avgMidY += personY + maxHeight/2
-            cv2.rectangle(frame, (personX, personY), (personX + maxWidth, personY + maxHeight), (0, 255, 0), 2)
-        avgMidX /= len(personContours)
-        avgMidY /= len(personContours)
 
-        personData = {
-                        'x1': personX, 'y1': personY,
-                        'x2': personX + maxWidth, 'y2': personY + maxHeight,
-                        'midX': avgMidX,
-                        'midY': avgMidY
-                     }
+            frameDiff = cv2.absdiff(prevFrame, person_gray)
+            personThreshold = cv2.threshold(frameDiff, 60, 255, cv2.THRESH_BINARY)[1]
+            personThreshold = cv2.dilate(personThreshold, None, iterations=2)
 
-        if first:
-            cv2.imshow("QR To Human", firstFrame)
-            cv2.waitKey(0)
-            first = False
-        # cv2.imshow("QR To Human", frame)
-        objects = parseImage(frame)
-        showBoxes(frame, objects, personData)
-        prevFrame = person_gray
-        cv2.waitKey(0)
+            _, personContours, _ = cv2.findContours(personThreshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+            maxWidth, maxHeight = 0, 0
+            personX, personY = 0, 0
+            avgMidX = 0
+            avgMidY = 0
+            for contour in personContours:
+                if cv2.contourArea(contour) < minContourSize:
+                    continue
+                (person_x, person_y, p_width, p_height) = cv2.boundingRect(contour)
+                # if p_width * p_height > maxWidth * maxHeight:
+                maxWidth, maxHeight = p_width, p_height
+                personX, personY = person_x, person_y
+                avgMidX += personX + maxWidth/2
+                avgMidY += personY + maxHeight/2
+                cv2.rectangle(frame, (personX, personY), (personX + maxWidth, personY + maxHeight), (0, 255, 0), 2)
+            avgMidX /= len(personContours)
+            avgMidY /= len(personContours)
+
+            personData = {
+                            'x1': personX, 'y1': personY,
+                            'x2': personX + maxWidth, 'y2': personY + maxHeight,
+                            'midX': avgMidX,
+                            'midY': avgMidY
+                         }
+
+            if first:
+                cv2.imshow("QR To Human", firstFrame)
+                # cv2.waitKey(0)
+                first = False
+            # cv2.imshow("QR To Human", frame)
+            objects = parseImage(frame)
+            showBoxes(frame, objects, personData)
+            prevFrame = person_gray
+            key = cv2.waitKey(1) & 0xFF
+            if key == ord('o'):
+                exitKey = True
+                break
+            # cv2.waitKey(0)
     # camera.release()
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
