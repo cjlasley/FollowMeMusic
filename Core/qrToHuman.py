@@ -12,9 +12,10 @@ import math
 # import numpy
 import time
 
-closestQR = {'distance': 0, 'data': ''}
+closestQR = {'distance': 0, 'data': '', 'location': (0, 0)}
 lineColor = (255, 0, 0)
 closestColor = (0, 255, 0)
+personColor = (0, 0, 255)
 
 # 5 inches
 actualQRHeight = 127
@@ -23,7 +24,8 @@ focalLength = 4.67
 sensorHeight = 7.81
 
 # 5 ft 10 inches
-avgPersonHeight = 1778
+# avgPersonHeight = 1778
+avgPersonHeight = 10
 
 minContourSize = 500
 
@@ -43,7 +45,13 @@ def parseImage(image):
     return objects
 
 
-def showBoxes(image, object_data, person_contours):
+def showBoxes(image, object_data, person_data):
+    h, w, c = image.shape
+    personZDistance = (focalLength * avgPersonHeight * h) / (abs(personData['y2'] - personData['y1']) * sensorHeight)
+
+    humanLocation = None
+    mmToPixelRatio = None
+
     for object in object_data:
         qrPoints = len(object.location)
         midPoint = (0, 0)
@@ -59,40 +67,32 @@ def showBoxes(image, object_data, person_contours):
             sideLength += distance(object.location[i-1], object.location[i])
         sideLength /= qrPoints
 
-        h, w, c = image.shape
-
-        mmToPixelRatio = sideLength**2 / actualQRHeight**2
-        print(mmToPixelRatio)
+        if mmToPixelRatio is None:
+            mmToPixelRatio = sideLength**2 / actualQRHeight**2
+            humanLocation = (personData['midX'], personData['midY'], mmToPixelRatio * personZDistance)
+        # print(mmToPixelRatio)
         # print("IMG HEIGHT: ", h)
         # print("SIDE LENGTH: ", sideLength)
         zDistance = (focalLength * actualQRHeight * h) / (sideLength * sensorHeight)
         # print("Z-DISTANCE: ", zDistance)
-        # TODO: INTEGRATE MOTION DETECT
         mid3Point = (midPoint[0], midPoint[1], mmToPixelRatio * zDistance)
 
-        maxPersonHeight = 0
-        avgPersonX = 0
-        avgPersonY = 0
-        for contour in personContours:
-            if cv2.contourArea(contour) < minContourSize:
-                continue
-            (person_x, person_y, p_width, p_height) = cv2.boundingRect(contour)
-            avgPersonX += person_x
-            avgPersonY += person_y
-            if p_height > maxPersonHeight:
-                maxPersonHeight = p_height
-            cv2.rectangle(image, (person_x, person_y), (person_x + p_width, person_y + p_height), (0, 255, 0), 2)
-        avgPersonX /= len(personContours)
-        avgPersonY /= len(personContours)
-        personZDistance = (focalLength * avgPersonHeight * h) / (maxPersonHeight * sensorHeight)
-        humanLocation = (avgPersonX, avgPersonY, mmToPixelRatio * personZDistance)
+        cv2.rectangle(image, (personData['x1'], personData['y1']),
+                     (personData['x2'], personData['y2']), (0, 255, 0), 2)
+
+        cv2.circle(image, (int(personData['midX']), int(personData['midY'])), 10, personColor, -1)
+
         absDiff = distance(mid3Point, humanLocation)
-        print("DIST: ", absDiff)
+        print("\nQR LOCATION: ", mid3Point)
+        print("HUMAN LOCATION: ", humanLocation)
+        print("DISTANCE BETWEEN: ", absDiff, "\n")
         if closestQR['data'] == '' or absDiff < closestQR['distance']:
             closestQR['distance'] = absDiff
             closestQR['data'] = object.data
-            cv2.circle(image, midPoint, 10, closestColor, -1)
-    cv2.imshow("QR: ", image)
+            closestQR['location'] = midPoint
+
+    cv2.circle(image, closestQR['location'], 10, closestColor, -1)
+    cv2.imshow("QR To Human", image)
     # cv2.waitKey(0)
 
 
@@ -116,9 +116,12 @@ if __name__ == '__main__':
     # camera = cv2.VideoCapture(0)
     # time.sleep(0.25)
     photos = []
-    photos.append(cv2.imread("qr_test/mouse1.jpg"))
-    photos.append(cv2.imread("qr_test/mouse2.jpg"))
-    photos.append(cv2.imread("qr_test/mouse3.jpg"))
+    photos.append(cv2.imread("qr_test/closeSwitch1.jpg"))
+    photos.append(cv2.imread("qr_test/closeSwitch2.jpg"))
+    photos.append(cv2.imread("qr_test/closeSwitch3.jpg"))
+    photos.append(cv2.imread("qr_test/closeSwitch4.jpg"))
+    photos.append(cv2.imread("qr_test/closeSwitch5.jpg"))
+    # photos.append(cv2.imread("qr_test/mouse3.jpg"))
 
     prevFrame = None
     firstFrame = None
@@ -137,7 +140,7 @@ if __name__ == '__main__':
         if prevFrame is None:
             firstFrame = frame
             prevFrame = person_gray
-            cv2.imshow("MOTION DETECT", frame)
+            cv2.imshow("QR To Human", frame)
             continue
 
         frameDiff = cv2.absdiff(prevFrame, person_gray)
@@ -146,32 +149,38 @@ if __name__ == '__main__':
 
         _, personContours, _ = cv2.findContours(personThreshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        maxPersonHeight = 0
-        avgPersonX = 0
-        avgPersonY = 0
         maxWidth, maxHeight = 0, 0
-        maxX, maxY = 0, 0
+        personX, personY = 0, 0
+        avgMidX = 0
+        avgMidY = 0
         for contour in personContours:
             if cv2.contourArea(contour) < minContourSize:
                 continue
             (person_x, person_y, p_width, p_height) = cv2.boundingRect(contour)
-            avgPersonX += person_x
-            avgPersonY += person_y
-            if p_height > maxPersonHeight:
-                maxPersonHeight = p_height
-            if p_width * p_height > maxWidth * maxHeight:
-                maxWidth, maxHeight = p_width, p_height
-                maxX, maxY = person_x, person_y
+            # if p_width * p_height > maxWidth * maxHeight:
+            maxWidth, maxHeight = p_width, p_height
+            personX, personY = person_x, person_y
+            avgMidX += personX + maxWidth/2
+            avgMidY += personY + maxHeight/2
+            cv2.rectangle(frame, (personX, personY), (personX + maxWidth, personY + maxHeight), (0, 255, 0), 2)
+        avgMidX /= len(personContours)
+        avgMidY /= len(personContours)
 
-        cv2.rectangle(frame, (maxX, maxY), (maxX + maxWidth, maxY + maxHeight), (0, 255, 0), 2)
+        personData = {
+                        'x1': personX, 'y1': personY,
+                        'x2': personX + maxWidth, 'y2': personY + maxHeight,
+                        'midX': avgMidX,
+                        'midY': avgMidY
+                     }
 
         if first:
-            cv2.imshow("MOTION DETECT", firstFrame)
+            cv2.imshow("QR To Human", firstFrame)
             cv2.waitKey(0)
             first = False
-        cv2.imshow("MOTION DETECT", frame)
+        # cv2.imshow("QR To Human", frame)
         objects = parseImage(frame)
-        # showBoxes(frame, objects, personContours)
+        showBoxes(frame, objects, personData)
+        prevFrame = person_gray
         cv2.waitKey(0)
     # camera.release()
     cv2.destroyAllWindows()
