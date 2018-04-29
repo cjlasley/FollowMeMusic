@@ -21,8 +21,8 @@ ___
 
 #### Core Algorithm:
 The core algorithm consists of a Python script that uses the openCV and zBar libraries to detect, locate, and read a QR code and then find the distance between this and a detected moving object. Motion detection is done by subtracting two subsequent frames and then applying filters to get the longest changing contour lines. The average cumulative midpoint of all of the boxes around the contours are used as the center point of the moving object. At this point, a 2 dimensional distance can be obtained between the QR code and detected object. However, since these exist in a 3 dimensional plane, the Z-distance to both objects are also obtained. This is done by using knowledge of the focal length and sensor height of the camera and then getting a ratio of the actual size (or estimated actual size) of the QR code and human compared to their perceived size in the picture. With all 3 dimensions now obtained, a 3 dimensional distance between the two objects can be calculated and the nearest QR code is given a red dot in its center, as shown below.
-
-<img src="README_Media/qrToMovementTracking.gif" width=300></img>
+<div style="text-align:center">
+<img src="README_Media/qrToMovementTracking.gif" width=300></img></div>
 
 ## Technical
 * Apps for IOS and Android will be developed using Flutter, a Dart based mobile development API

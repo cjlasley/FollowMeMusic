@@ -12,6 +12,9 @@ import math
 # import numpy
 import time
 
+# WARNING: Mac Dependent library for volume control
+import osascript
+
 closestQR = {'distance': 0, 'data': '', 'location': (0, 0)}
 lineColor = (255, 0, 0)
 closestColor = (0, 255, 0)
@@ -51,7 +54,7 @@ def showBoxes(image, object_data, person_data):
 
     humanLocation = None
     mmToPixelRatio = None
-
+    volumeLevel = 0
     for object in object_data:
         qrPoints = len(object.location)
         midPoint = (0, 0)
@@ -69,13 +72,15 @@ def showBoxes(image, object_data, person_data):
 
         if mmToPixelRatio is None:
             mmToPixelRatio = sideLength**2 / actualQRHeight**2
-            humanLocation = (personData['midX'], personData['midY'], mmToPixelRatio * personZDistance)
+            personZDistance *= mmToPixelRatio
+            humanLocation = (personData['midX'], personData['midY'], personZDistance)
         # print(mmToPixelRatio)
         # print("IMG HEIGHT: ", h)
         # print("SIDE LENGTH: ", sideLength)
         zDistance = (focalLength * actualQRHeight * h) / (sideLength * sensorHeight)
+        zDistance *= mmToPixelRatio
         # print("Z-DISTANCE: ", zDistance)
-        mid3Point = (midPoint[0], midPoint[1], mmToPixelRatio * zDistance)
+        mid3Point = (midPoint[0], midPoint[1], zDistance)
 
         cv2.rectangle(image, (personData['x1'], personData['y1']),
                      (personData['x2'], personData['y2']), (0, 255, 0), 2)
@@ -83,14 +88,16 @@ def showBoxes(image, object_data, person_data):
         cv2.circle(image, (int(personData['midX']), int(personData['midY'])), 10, personColor, -1)
 
         absDiff = distance(mid3Point, humanLocation)
+        volumeLevel = math.floor(absDiff / max(w, h) * 100)
         print("\nQR LOCATION: ", mid3Point)
         print("HUMAN LOCATION: ", humanLocation)
         print("DISTANCE BETWEEN: ", absDiff, "\n")
+        print("VOLUME LEVEL: ", volumeLevel)
         if closestQR['data'] == '' or absDiff < closestQR['distance']:
             closestQR['distance'] = absDiff
             closestQR['data'] = object.data
             closestQR['location'] = midPoint
-
+    osascript.osascript("set volume output volume " + str(volumeLevel))
     cv2.circle(image, closestQR['location'], 10, closestColor, -1)
     cv2.imshow("QR To Human", image)
     # cv2.waitKey(0)
