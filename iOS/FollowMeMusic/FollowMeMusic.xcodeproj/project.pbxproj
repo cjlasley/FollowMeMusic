@@ -218,6 +218,7 @@
 				TargetAttributes = {
 					F01BEE0D207EDD8200131EB6 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = BVN96897D5;
 						ProvisioningStyle = Automatic;
 					};
 					F01BEE26207EDD8200131EB6 = {
@@ -425,7 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BVN96897D5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FollowMeMusic",
@@ -442,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BVN96897D5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FollowMeMusic",

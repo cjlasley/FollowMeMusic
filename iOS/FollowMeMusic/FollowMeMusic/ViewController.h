@@ -10,7 +10,7 @@
 #include <opencv2/videoio/cap_ios.h>
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CvVideoCameraDelegate>
 {
     IBOutlet UIImageView *cameraImageView;
     IBOutlet UIButton    *dankButton;

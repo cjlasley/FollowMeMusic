@@ -8,16 +8,12 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     videoCamera = [[CvVideoCamera alloc] initWithParentView:cameraImageView];
+    [videoCamera setDelegate:self];
     videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
     videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
     videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
@@ -32,8 +28,16 @@
 
 - (IBAction)dankButtonPressed: (id)sender
 {
-    
+    [videoCamera start];
 }
 
+- (void)processImage:(cv::Mat&)theImage
+{
+    cv::Mat imageWorkingCopy;
+    cv::cvtColor(theImage, imageWorkingCopy, CV_BGRA2BGR);
+    
+    cv::bitwise_not(imageWorkingCopy, imageWorkingCopy);
+    cv::cvtColor(imageWorkingCopy, theImage, CV_BGR2BGRA);
+}
 
 @end
