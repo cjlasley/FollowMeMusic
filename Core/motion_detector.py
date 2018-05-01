@@ -82,7 +82,7 @@ while True:
 		# and update the text
 		(x, y, w, h) = cv2.boundingRect(c)
 		cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-		text = "Occupied x: " + str(x) + " y: " + str(y) 
+		text = "Occupied x: " + str(x) + " y: " + str(y)
 
 	# draw the text and timestamp on the frame
 	cv2.putText(frame, "Room Status: {}".format(text), (10, 20),
