@@ -14,8 +14,8 @@
     [super viewDidLoad];
     videoCamera = [[CvVideoCamera alloc] initWithParentView:cameraImageView];
     [videoCamera setDelegate:self];
-    videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
-    videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
+    videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
+    videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset3840x2160;
     videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
     videoCamera.defaultFPS = 30;
 }
@@ -36,7 +36,7 @@
     cv::Mat imageWorkingCopy;
     cv::cvtColor(theImage, imageWorkingCopy, CV_BGRA2BGR);
     
-    cv::bitwise_not(imageWorkingCopy, imageWorkingCopy);
+    //cv::bitwise_not(imageWorkingCopy, imageWorkingCopy);
     cv::cvtColor(imageWorkingCopy, theImage, CV_BGR2BGRA);
 }
 

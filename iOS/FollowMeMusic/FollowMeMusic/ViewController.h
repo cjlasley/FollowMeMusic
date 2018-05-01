@@ -6,8 +6,7 @@
 //  Copyright © 2018 clasley. All rights reserved.
 //
 
-#include <opencv2/opencv.hpp>
-#include <opencv2/videoio/cap_ios.h>
+#include "FMImageProcessor.h"
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController<CvVideoCameraDelegate>
