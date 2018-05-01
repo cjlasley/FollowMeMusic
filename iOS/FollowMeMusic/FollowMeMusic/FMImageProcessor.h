@@ -14,17 +14,17 @@
 #include <math.h>
 
 typedef struct{
-    double x;
-    double y;
-    double z;
+    double  distance;
+    void    *data;
+    CvPoint location;
 }FMObjectInformation;
 
 @interface FMImageProcessor : NSObject
 {
-    NSMutableArray *closestQR;
-    UIColor        *lineColor;
-    UIColor        *closestColor;
-    UIColor        *personColor;
+    FMObjectInformation closestQR;
+    UIColor             *lineColor;
+    UIColor             *closestColor;
+    UIColor             *personColor;
     
     NSUInteger actualQRHeight;
     double     focalLength;
@@ -32,7 +32,12 @@ typedef struct{
     NSUInteger avgPersonHeight;
     NSUInteger minContourSize;
     
+    cv::Mat *previousFrame;
+    cv::Mat *firstFrame;
+    
 }
+
+- (id)init;
 
 - (double)distance: (FMObjectInformation)obj1 toObject: (FMObjectInformation)obj2;
 
