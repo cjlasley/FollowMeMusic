@@ -83,13 +83,6 @@ static NSString * const FORM_FLE_INPUT = @"shent";
     return urlRequest;
 }
 
-- (NSData *)compressData:(NSData *)data
-{
-    //nah
-    [NSException raise:NSInvalidArgumentException format:@""];
-    return nil;
-}
-
 - (void)uploadDidSucceed:(BOOL)successStatus
 {
     if (successStatus)
