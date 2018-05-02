@@ -6,7 +6,6 @@
 
 import cv2
 import pyzbar.pyzbar as pyzbar
-# import argparse
 import imutils
 import math
 import time
@@ -103,27 +102,15 @@ def showBoxes(image, object_data, personData):
 if __name__ == '__main__':
     camera = cv2.VideoCapture(0)
     time.sleep(0.25)
-    photos = []
-    # photos.append(cv2.imread("qr_test/closeSwitch1.jpg"))
-    # photos.append(cv2.imread("qr_test/closeSwitch2.jpg"))
-    # photos.append(cv2.imread("qr_test/closeSwitch3.jpg"))
-    # photos.append(cv2.imread("qr_test/closeSwitch4.jpg"))
-    # photos.append(cv2.imread("qr_test/closeSwitch5.jpg"))
-    # photos.append(cv2.imread("qr_test/mouse3.jpg"))
 
     exitKey = False
-    # while True:
-    # if exitKey:
-    #     break
     prevFrame = None
     firstFrame = None
     first = True
     closestQR = {'distance': 0, 'data': '', 'location': (0, 0)}
     while True:
-    # for i in range(0, len(photos)):
         time.sleep(0.25)
         gotFrame, frame = camera.read()
-        # gotFrame, frame = True, photos[i]
         if not gotFrame:
             break
 

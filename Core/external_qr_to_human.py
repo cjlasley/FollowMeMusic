@@ -38,9 +38,6 @@ class SpatialQR:
 
     def parseImage(self, image):
         objects = pyzbar.decode(image)
-        # for object in objects:
-            # print("QR TYPE: ", object.type)
-            # print("QR DATA: ", object.data)
         return objects
 
     def showBoxes(self, image, object_data, personData):
@@ -91,7 +88,6 @@ class SpatialQR:
                 self.closestQR['distance'] = absDiff
                 self.closestQR['data'] = object.data
                 self.closestQR['location'] = midPoint
-        # osascript.osascript("set volume output volume " + str(volumeLevel))
         cv2.circle(image, self.closestQR['location'], 10, self.closestColor, -1)
         cv2.imshow("QR To Human", image)
         volumeLevel /= len(object_data)
@@ -150,9 +146,3 @@ class SpatialQR:
         if key == ord('o'):
             exit()
         return volume
-
-
-# if __name__ == '__main__':
-#     sqr = SpatialQR("qr_test/closeSwitch1.jpg")
-#     print(sqr.getDistanceToVolume("qr_test/closeSwitch2.jpg"))
-#     print(sqr.getDistanceToVolume("qr_test/closeSwitch3.jpg"))
