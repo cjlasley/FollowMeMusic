@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F01A6E5C20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01A6E5B20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg */; };
 		F01BEE13207EDD8200131EB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE12207EDD8200131EB6 /* main.m */; };
 		F01BEE16207EDD8200131EB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE15207EDD8200131EB6 /* AppDelegate.m */; };
 		F01BEE19207EDD8200131EB6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE18207EDD8200131EB6 /* ViewController.m */; };
@@ -28,6 +29,7 @@
 		F0C572592095D0E900EACDBF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572582095D0E900EACDBF /* QuartzCore.framework */; };
 		F0C5725B2095D0EF00EACDBF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5725A2095D0EF00EACDBF /* UIKit.framework */; };
 		F0C5725D2095D0F500EACDBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5725C2095D0F500EACDBF /* Foundation.framework */; };
+		F0DC409A20982F470042FB05 /* FMNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F0DC409920982F470042FB05 /* FMNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F01A6E5B20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = InsultTwoPanelTwo.jpg; sourceTree = "<group>"; };
 		F01BEE0E207EDD8200131EB6 /* FollowMeMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowMeMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01BEE12207EDD8200131EB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F01BEE14207EDD8200131EB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +72,8 @@
 		F0C572582095D0E900EACDBF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F0C5725A2095D0EF00EACDBF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F0C5725C2095D0F500EACDBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F0DC409820982F470042FB05 /* FMNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMNetwork.h; sourceTree = "<group>"; };
+		F0DC409920982F470042FB05 /* FMNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +134,11 @@
 				F045288F20980CDE00C5B86D /* FMImageProcessor.m */,
 				F01BEE17207EDD8200131EB6 /* ViewController.h */,
 				F01BEE18207EDD8200131EB6 /* ViewController.m */,
+				F0DC409820982F470042FB05 /* FMNetwork.h */,
+				F0DC409920982F470042FB05 /* FMNetwork.m */,
 				F0C572462095CAB700EACDBF /* MotionTracker.h */,
 				F0C572472095CAB700EACDBF /* MotionTracker.mm */,
+				F01A6E5B20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg */,
 				F01BEE1A207EDD8200131EB6 /* Main.storyboard */,
 				F01BEE1D207EDD8200131EB6 /* Assets.xcassets */,
 				F01BEE1F207EDD8200131EB6 /* LaunchScreen.storyboard */,
@@ -258,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01A6E5C20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg in Resources */,
 				F0C572452095CA4D00EACDBF /* opencv2.framework in Resources */,
 				F01BEE21207EDD8200131EB6 /* LaunchScreen.storyboard in Resources */,
 				F01BEE1E207EDD8200131EB6 /* Assets.xcassets in Resources */,
@@ -284,6 +293,7 @@
 				F01BEE16207EDD8200131EB6 /* AppDelegate.m in Sources */,
 				F045289020980CDE00C5B86D /* FMImageProcessor.m in Sources */,
 				F01BEE13207EDD8200131EB6 /* main.m in Sources */,
+				F0DC409A20982F470042FB05 /* FMNetwork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
