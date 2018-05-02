@@ -43,11 +43,9 @@ The core algorithm consists of a Python script that uses the openCV and zBar lib
 <img src="README_Media/qrToMovementTracking.gif" width=300></img>
 </div>
 
-#### iOS:
-The iOS Port of Follow Me Music was developed with a server-client model in mind, rather than the application running locally on the device as in the Android version.
+#### IOS:
+The iOS Port of Follow Me Music was developed with a server-client model in mind, rather than the application running locally on the device as in the Android version.The server application is a modified version of the Mac OS X Python application; this version also runs a web server over the running computer's network. An iOS device running Follow Me Music can send images at a rate of 4fps to the server using normal HTTP POST requests. The server processes these images and adjusts the volume on the connected speakers accordingly.
 
-The server application is a modified version of the Mac OS X Python application; this version also runs a web server over the running computer's network. An iOS device running Follow Me Music can send images at a rate of 4fps to the server using normal HTTP POST requests. The server processes these images and adjusts the volume on the connected speakers accordingly.
-=======
 ### Cross Platform Compatability:
 
 #### Method 1 - Porting the Core Algorithm:
