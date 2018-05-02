@@ -9,12 +9,12 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2//videoio/cap_ios.h>
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ViewController : UIViewController<CvVideoCameraDelegate>
 {
     IBOutlet UIImageView *cameraImageView;
     IBOutlet UIButton    *dankButton;
-    UISlider             *volumeControlSlider;
     
     CvVideoCamera *videoCamera;
 }

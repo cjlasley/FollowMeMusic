@@ -10,11 +10,12 @@
 		F01A6E5C20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F01A6E5B20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg */; };
 		F01BEE13207EDD8200131EB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE12207EDD8200131EB6 /* main.m */; };
 		F01BEE16207EDD8200131EB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE15207EDD8200131EB6 /* AppDelegate.m */; };
-		F01BEE19207EDD8200131EB6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE18207EDD8200131EB6 /* ViewController.m */; };
+		F01BEE19207EDD8200131EB6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE18207EDD8200131EB6 /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F01BEE1C207EDD8200131EB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01BEE1A207EDD8200131EB6 /* Main.storyboard */; };
 		F01BEE1E207EDD8200131EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F01BEE1D207EDD8200131EB6 /* Assets.xcassets */; };
 		F01BEE21207EDD8200131EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01BEE1F207EDD8200131EB6 /* LaunchScreen.storyboard */; };
 		F01BEE2C207EDD8200131EB6 /* FollowMeMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BEE2B207EDD8200131EB6 /* FollowMeMusicTests.m */; };
+		F05775292099C216002310DD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F05775282099C216002310DD /* MediaPlayer.framework */; };
 		F0C572442095CA4900EACDBF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572432095CA4900EACDBF /* opencv2.framework */; };
 		F0C572452095CA4D00EACDBF /* opencv2.framework in Resources */ = {isa = PBXBuildFile; fileRef = F0C572432095CA4900EACDBF /* opencv2.framework */; };
 		F0C5724B2095D0C000EACDBF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5724A2095D0C000EACDBF /* Accelerate.framework */; };
@@ -55,6 +56,7 @@
 		F01BEE27207EDD8200131EB6 /* FollowMeMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FollowMeMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01BEE2B207EDD8200131EB6 /* FollowMeMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowMeMusicTests.m; sourceTree = "<group>"; };
 		F01BEE2D207EDD8200131EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F05775282099C216002310DD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F0C572432095CA4900EACDBF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		F0C5724A2095D0C000EACDBF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		F0C5724C2095D0C600EACDBF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -75,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05775292099C216002310DD /* MediaPlayer.framework in Frameworks */,
 				F0C5725D2095D0F500EACDBF /* Foundation.framework in Frameworks */,
 				F0C5725B2095D0EF00EACDBF /* UIKit.framework in Frameworks */,
 				F0C572592095D0E900EACDBF /* QuartzCore.framework in Frameworks */,
@@ -124,10 +127,10 @@
 				F0C572432095CA4900EACDBF /* opencv2.framework */,
 				F01BEE14207EDD8200131EB6 /* AppDelegate.h */,
 				F01BEE15207EDD8200131EB6 /* AppDelegate.m */,
-				F01BEE17207EDD8200131EB6 /* ViewController.h */,
-				F01BEE18207EDD8200131EB6 /* ViewController.m */,
 				F0DC409820982F470042FB05 /* FMNetwork.h */,
 				F0DC409920982F470042FB05 /* FMNetwork.m */,
+				F01BEE17207EDD8200131EB6 /* ViewController.h */,
+				F01BEE18207EDD8200131EB6 /* ViewController.m */,
 				F01A6E5B20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg */,
 				F01BEE1A207EDD8200131EB6 /* Main.storyboard */,
 				F01BEE1D207EDD8200131EB6 /* Assets.xcassets */,
@@ -158,6 +161,7 @@
 		F0C572492095D0C000EACDBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F05775282099C216002310DD /* MediaPlayer.framework */,
 				F0C5725C2095D0F500EACDBF /* Foundation.framework */,
 				F0C5725A2095D0EF00EACDBF /* UIKit.framework */,
 				F0C572582095D0E900EACDBF /* QuartzCore.framework */,

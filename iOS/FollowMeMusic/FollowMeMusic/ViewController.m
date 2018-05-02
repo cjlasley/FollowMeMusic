@@ -26,7 +26,10 @@ static NSMutableArray *senderArray;
     videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
     videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset3840x2160;
     videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
-    videoCamera.defaultFPS = 30;
+    videoCamera.defaultFPS = 4;
+    
+    //MPVolumeView *aView = [[MPVolumeView alloc] initWithFrame:[volumeSlider frame]];
+    //[((id)aView) _commitVolumeChange];
 }
 
 
@@ -51,7 +54,7 @@ static NSMutableArray *senderArray;
     }else{
         shouldSend = YES;
     }
-    FMNetwork *uploader = [[FMNetwork alloc] initWithURL:[NSURL URLWithString:@"http://172.20.10.2:5000/upload"] filePath:filePath delegate:self doneCallback:@selector(onUploadDone) errorCallback:@selector(onUploadError)];
+    //FMNetwork *uploader = [[FMNetwork alloc] initWithURL:[NSURL URLWithString:@"http://172.20.10.2:5000/upload"] filePath:filePath delegate:self doneCallback:@selector(onUploadDone) errorCallback:@selector(onUploadError)];
 }
 
 -  (void)onUploadDone
@@ -72,7 +75,7 @@ static NSMutableArray *senderArray;
     
     if (/*!firstTime &&*/ shouldSend){
         firstTime = YES;
-        shouldSend = NO;
+        //shouldSend = NO;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *directory = [paths objectAtIndex:0];
     NSString *filePath = [directory stringByAppendingPathComponent:[NSString stringWithFormat:@"img.jpg"]];
@@ -83,7 +86,7 @@ static NSMutableArray *senderArray;
     //Save image
     imwrite(thisPath, theImage);
     
-    //FMNetwork *uploader = [[FMNetwork alloc] initWithURL:[NSURL URLWithString:@"http://172.20.10.2:5000/upload"] filePath:filePath delegate:self doneCallback:@selector(onUploadDone) errorCallback:@selector(onUploadError)];
+    FMNetwork *uploader = [[FMNetwork alloc] initWithURL:[NSURL URLWithString:@"http://172.20.10.2:5000/upload"] filePath:filePath delegate:self doneCallback:@selector(onUploadDone) errorCallback:@selector(onUploadError)];
     }
     
     //cv::bitwise_not(imageWorkingCopy, imageWorkingCopy);
