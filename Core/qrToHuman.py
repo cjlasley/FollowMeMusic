@@ -101,30 +101,14 @@ def showBoxes(image, object_data, personData):
 
 
 if __name__ == '__main__':
-    # qr_source = cv2.imread("qr_test/horiz1.jpg")
-    # qr_source = imutils.resize(qr_source, width=500)
-
-    # kernel = numpy.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]])
-    # qr_source = cv2.filter2D(qr_source, -1, kernel)
-
-    # qr_source = cv2.cvtColor(qr_source, cv2.COLOR_BGR2HSV)
-    # qr_source[:, :, 2] = [[max(pixel - 75, 0) if pixel < 100
-    # else min(pixel + 75, 255) for pixel in row] for row in qr_source[:, :, 2]]
-    # qr_source = cv2.cvtColor(qr_source, cv2.COLOR_HSV2BGR)
-    # qr_source = cv2.cvtColor(qr_source, cv2.COLOR_BGR2GRAY)
-
-    # qr_source = cv2.threshold(qr_source, 150, 255, cv2.THRESH_BINARY)[1]
-
-    # gray = cv2.cvtColor(qr_source, cv2.COLOR_BGR2GRAY)
-
     camera = cv2.VideoCapture(0)
     time.sleep(0.25)
     photos = []
-    photos.append(cv2.imread("qr_test/closeSwitch1.jpg"))
-    photos.append(cv2.imread("qr_test/closeSwitch2.jpg"))
-    photos.append(cv2.imread("qr_test/closeSwitch3.jpg"))
-    photos.append(cv2.imread("qr_test/closeSwitch4.jpg"))
-    photos.append(cv2.imread("qr_test/closeSwitch5.jpg"))
+    # photos.append(cv2.imread("qr_test/closeSwitch1.jpg"))
+    # photos.append(cv2.imread("qr_test/closeSwitch2.jpg"))
+    # photos.append(cv2.imread("qr_test/closeSwitch3.jpg"))
+    # photos.append(cv2.imread("qr_test/closeSwitch4.jpg"))
+    # photos.append(cv2.imread("qr_test/closeSwitch5.jpg"))
     # photos.append(cv2.imread("qr_test/mouse3.jpg"))
 
     exitKey = False

@@ -28,8 +28,9 @@ The Mac version can run off the pure core algorithm Python script and requires t
 - osascript
 
 These can be installed as follows with pip and homebrew:
-```sh 
+```sh
 brew install opencv@2
+brew install zbar
 pip install osascript
 pip install pyzbar
 ```
