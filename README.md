@@ -43,6 +43,13 @@ The core algorithm consists of a Python script that uses the openCV and zBar lib
 <img src="README_Media/qrToMovementTracking.gif" width=300></img>
 </div>
 
+### Cross Platform Compatability:
+
+#### Method 1 - Porting the Core Algorithm:
+
+#### Method 2 - Using a Local Sever:
+After spending a lot of time translating the Python code for the core algorithm over to Java, we realized that this was a very time consuming process and made it so that we had to change essentially the same code in multiple areas if we wanted to change the core algorithm. The solution we came up for this was to send about 4 images a second to a local server and have this server process the data with the python code. This made it so instead of writing a long and complicated mobile app, we just had to come up with a way to send images to the server and then set the volume to whatever we got as a response. We thought of various methods on how we wanted to send the image including using FTP or a Dropbox API, however, we ended up deciding to just use a simple POST request. This POST request, sent from a phone, contains the raw bytes of the photo. On the server end, this photo is received in a Flask app POST request handler function and saved to an image on the disk that we use as a sort of intermediate pipe. This image is then read into the a modified version of the core algorithm, which returns a volume level that could just be set on the device. However, we tested this method with IOS and realized that Apple prevents apps from setting the volume themselves. In order to solve this problem, we decided to just change the volume on the server and then connect a speaker via bluetooth and place it near the QR tag. Although this is a very roundabout method, it makes for small mobile app development and centralizes the core algorithm to only needing to be changed in one location for all devices using this method.
+
 ## Technical
 * Apps for IOS and Android will be developed using Flutter, a Dart based mobile development API
   > Check out [Flutter's homepage](https://flutter.io/) for more information
