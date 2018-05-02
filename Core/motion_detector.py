@@ -82,7 +82,11 @@ while True:
 		# and update the text
 		(x, y, w, h) = cv2.boundingRect(c)
 		cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+<<<<<<< HEAD
 		text = "Occupied x: " + str(x) + " y: " + str(y)
+=======
+		text = "Occupied x: " + str(x) + " y: " + str(y) 
+>>>>>>> remotes/origin/Special
 
 	# draw the text and timestamp on the frame
 	cv2.putText(frame, "Room Status: {}".format(text), (10, 20),
@@ -102,4 +106,8 @@ while True:
 
 # cleanup the camera and close any open windows
 camera.release()
+<<<<<<< HEAD
 cv2.destroyAllWindows()
+=======
+cv2.destroyAllWindows()
+>>>>>>> remotes/origin/Special
