@@ -40,7 +40,7 @@ pip install pyzbar
 #### Core Algorithm:
 The core algorithm consists of a Python script that uses the openCV and zBar libraries to detect, locate, and read a QR code and then find the distance between this and a detected moving object. Motion detection is done by subtracting two subsequent frames and then applying filters to get the longest changing contour lines. The average cumulative midpoint of all of the boxes around the contours are used as the center point of the moving object. At this point, a 2 dimensional distance can be obtained between the QR code and detected object. However, since these exist in a 3 dimensional plane, the Z-distance to both objects are also obtained. This is done by using knowledge of the focal length and sensor height of the camera and then getting a ratio of the actual size (or estimated actual size) of the QR code and human compared to their perceived size in the picture. With all 3 dimensions now obtained, a 3 dimensional distance between the two objects can be calculated and the nearest QR code is given a red dot in its center, as shown below.
 <div style="text-align:center">
-<img src="README_Media/qrToMovementTracking.gif" width=300></img>
+<img src="README_Media/qrToMovementTracking.gif" width=400></img>
 </div>
 
 #### IOS:
@@ -50,11 +50,15 @@ The iOS Port of Follow Me Music was developed with a server-client model in mind
 
 #### Method 1 - Porting the Core Algorithm:
 
-The Android app inherits many features from the core algorithm aside from using a QR code as a relative base to judge distance. Instead the Android app using the distance from the actual device running the app to judge distance and ultimately volume. Implementation wise, the Android app is completely self contained, meaning everything involving image differentials, volume adjustments, and other calculations are performed on the actual device itself. This is very taxing on both the processor and RAM capacity since performing operations and storing images quickly can consume large amounts of RAM. To put this into perspective, we were experiencing 2GB of RAM consumption every 15 seconds with a 800x800 live camera display. Reducing the dimensions has greatly decreased the amount of RAM consumed, but the image is smaller as a result. Things to work on in the future would involve implementing RAII like features on some camera objects we are using and devising some sort of method to allow the app to interface seamlessly with other apps that play music, select bluetooth devices, etc. 
+The Android app inherits many features from the core algorithm aside from using a QR code as a relative base to judge distance. Instead the Android app using the distance from the actual device running the app to judge distance and ultimately volume. Implementation wise, the Android app is completely self contained, meaning everything involving image differentials, volume adjustments, and other calculations are performed on the actual device itself. This is very taxing on both the processor and RAM capacity since performing operations and storing images quickly can consume large amounts of RAM. To put this into perspective, we were experiencing 2GB of RAM consumption every 15 seconds with a 800x800 live camera display. Reducing the dimensions has greatly decreased the amount of RAM consumed, but the image is smaller as a result. Things to work on in the future would involve implementing RAII like features on some camera objects we are using and devising some sort of method to allow the app to interface seamlessly with other apps that play music, select bluetooth devices, etc.
 
-[Image Detect 1](Screenshot_2018-05-02-15-30-02.png)
-[Image Detect 2](Screenshot_2018-05-02-15-29-42.png)
-[Image Detect 3](Screenshot_2018-05-02-15-29-33.png)
+<div style="text-align:center">
+<img src="README_Media/Screenshot_2018-05-02-15-29-33.png" width=500></img>
+
+<img src="README_Media/Screenshot_2018-05-02-15-29-42.png" width=500></img>
+
+<img src="README_Media/Screenshot_2018-05-02-15-30-02.png" width=500></img>
+</div>
 
 #### Method 2 - Using a Local Sever:
 After spending a lot of time translating the Python code for the core algorithm over to Java, we realized that this was a very time consuming process and made it so that we had to change essentially the same code in multiple areas if we wanted to change the core algorithm. The solution we came up for this was to send about 4 images a second to a local server and have this server process the data with the python code. This made it so instead of writing a long and complicated mobile app, we just had to come up with a way to send images to the server and then set the volume to whatever we got as a response. We thought of various methods on how we wanted to send the image including using FTP or a Dropbox API, however, we ended up deciding to just use a simple POST request. This POST request, sent from a phone, contains the raw bytes of the photo. On the server end, this photo is received in a Flask app POST request handler function and saved to an image on the disk that we use as a sort of intermediate pipe. This image is then read into the a modified version of the core algorithm, which returns a volume level that could just be set on the device. However, we tested this method with IOS and realized that Apple prevents apps from setting the volume themselves. In order to solve this problem, we decided to just change the volume on the server and then connect a speaker via bluetooth and place it near the QR tag. Although this is a very roundabout method, it makes for small mobile app development and centralizes the core algorithm to only needing to be changed in one location for all devices using this method.
