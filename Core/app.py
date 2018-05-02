@@ -1,9 +1,18 @@
 # import os
 import external_qr_to_human as qth
-import osascript
 from flask import Flask, render_template, request
 
+# WARNING: Mac Dependent library for volume control
+import osascript
+import logging
+
+
 app = Flask(__name__)
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
+log.disabled = True
+app.logger.disabled = True
+
 app.counter = 0
 app.firstFrame = True
 app.spatialVolume = None

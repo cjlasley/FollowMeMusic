@@ -20,13 +20,13 @@ class SpatialQR:
         self.personColor = (0, 0, 255)
 
         # 5 inches
-        self.actualQRHeight = 127
+        self.actualQRHeight = 203
         self.focalLength = 4.67
         self.sensorHeight = 7.81
 
         # 5 ft 10 inches
         # avgPersonHeight = 1778
-        self.avgPersonHeight = 10
+        self.avgPersonHeight = 1500
         self.minContourSize = 500
         self.prevFrame = None
 
@@ -76,13 +76,13 @@ class SpatialQR:
             zDistance *= mmToPixelRatio
             mid3Point = (midPoint[0], midPoint[1], zDistance)
 
-            # cv2.rectangle(image, (personData['x1'], personData['y1']),
-            #              (personData['x2'], personData['y2']), (0, 255, 0), 2)
+            cv2.rectangle(image, (personData['x1'], personData['y1']),
+                         (personData['x2'], personData['y2']), (0, 255, 0), 2)
 
-            # cv2.circle(image, (int(personData['midX']), int(personData['midY'])), 10, self.personColor, -1)
+            cv2.circle(image, (int(personData['midX']), int(personData['midY'])), 10, self.personColor, -1)
 
             absDiff = self.distance(mid3Point, humanLocation)
-            volumeLevel = math.floor(absDiff / max(w, h) * 100)
+            volumeLevel += math.floor(absDiff / max(w, h) * 100)
             # print("\nQR LOCATION: ", mid3Point)
             # print("HUMAN LOCATION: ", humanLocation)
             # print("DISTANCE BETWEEN: ", absDiff, "\n")
@@ -91,15 +91,15 @@ class SpatialQR:
                 self.closestQR['distance'] = absDiff
                 self.closestQR['data'] = object.data
                 self.closestQR['location'] = midPoint
-            return volumeLevel
         # osascript.osascript("set volume output volume " + str(volumeLevel))
-        # cv2.circle(image, self.closestQR['location'], 10, self.closestColor, -1)
-        # cv2.imshow("QR To Human", image)
+        cv2.circle(image, self.closestQR['location'], 10, self.closestColor, -1)
+        cv2.imshow("QR To Human", image)
+        volumeLevel /= len(object_data)
+        return volumeLevel
 
     def getDistanceToVolume(self, image):
         frame = cv2.imread(image)
         self.closestQR = {'distance': 0, 'data': '', 'location': (0, 0)}
-        # time.sleep(0.25)
 
         frame = imutils.resize(frame, width=500)
         person_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -107,10 +107,11 @@ class SpatialQR:
 
         if self.prevFrame is None:
             self.prevFrame = person_gray
+            cv2.imshow("QR To Human", frame)
             return -1
 
         frameDiff = cv2.absdiff(self.prevFrame, person_gray)
-        personThreshold = cv2.threshold(frameDiff, 60, 255, cv2.THRESH_BINARY)[1]
+        personThreshold = cv2.threshold(frameDiff, 30, 255, cv2.THRESH_BINARY)[1]
         personThreshold = cv2.dilate(personThreshold, None, iterations=2)
 
         _, personContours, _ = cv2.findContours(personThreshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -131,7 +132,7 @@ class SpatialQR:
             personX, personY = person_x, person_y
             avgMidX += personX + maxWidth/2
             avgMidY += personY + maxHeight/2
-            # cv2.rectangle(frame, (personX, personY), (personX + maxWidth, personY + maxHeight), (0, 255, 0), 2)
+            cv2.rectangle(frame, (personX, personY), (personX + maxWidth, personY + maxHeight), (0, 255, 0), 2)
         avgMidX /= len(personContours)
         avgMidY /= len(personContours)
 
@@ -145,6 +146,9 @@ class SpatialQR:
         objects = self.parseImage(frame)
         volume = self.showBoxes(frame, objects, personData)
         self.prevFrame = person_gray
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('o'):
+            exit()
         return volume
 
 

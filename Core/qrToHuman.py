@@ -26,8 +26,8 @@ focalLength = 4.67
 sensorHeight = 7.81
 
 # 5 ft 10 inches
-# avgPersonHeight = 1778
-avgPersonHeight = 10
+avgPersonHeight = 1500
+# avgPersonHeight = 10
 
 minContourSize = 500
 
@@ -138,7 +138,7 @@ if __name__ == '__main__':
             continue
 
         frameDiff = cv2.absdiff(prevFrame, person_gray)
-        personThreshold = cv2.threshold(frameDiff, 60, 255, cv2.THRESH_BINARY)[1]
+        personThreshold = cv2.threshold(frameDiff, 30, 255, cv2.THRESH_BINARY)[1]
         personThreshold = cv2.dilate(personThreshold, None, iterations=2)
 
         _, personContours, _ = cv2.findContours(personThreshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
