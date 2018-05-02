@@ -1,5 +1,5 @@
 # Follow Me Music
-An OpenCV project where servos with speakers attached to them turn to track people in the room.
+A cross-platform OpenCV project where bluetooth speaker volumes are adjusted based on the distance of a person to a QR tag on the speaker.
 ___
 
 ## MVP:
@@ -62,7 +62,7 @@ After spending a lot of time translating the Python code for the core algorithm 
   > Reference [OpenCV video processing with Objective-C](https://docs.opencv.org/2.4/doc/tutorials/ios/video_processing/video_processing.html) for documentation
 
 
-### Installation
+### Development Setup
 * You will need to do the following:
 1. Install Flutter:
 
