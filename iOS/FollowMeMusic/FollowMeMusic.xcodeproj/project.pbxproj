@@ -18,7 +18,6 @@
 		F045289020980CDE00C5B86D /* FMImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = F045288F20980CDE00C5B86D /* FMImageProcessor.m */; };
 		F0C572442095CA4900EACDBF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C572432095CA4900EACDBF /* opencv2.framework */; };
 		F0C572452095CA4D00EACDBF /* opencv2.framework in Resources */ = {isa = PBXBuildFile; fileRef = F0C572432095CA4900EACDBF /* opencv2.framework */; };
-		F0C572482095CAB700EACDBF /* MotionTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0C572472095CAB700EACDBF /* MotionTracker.mm */; };
 		F0C5724B2095D0C000EACDBF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5724A2095D0C000EACDBF /* Accelerate.framework */; };
 		F0C5724D2095D0C600EACDBF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5724C2095D0C600EACDBF /* AssetsLibrary.framework */; };
 		F0C5724F2095D0CA00EACDBF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C5724E2095D0CA00EACDBF /* AVFoundation.framework */; };
@@ -60,8 +59,6 @@
 		F045288E20980CDE00C5B86D /* FMImageProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMImageProcessor.h; sourceTree = "<group>"; };
 		F045288F20980CDE00C5B86D /* FMImageProcessor.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = FMImageProcessor.m; sourceTree = "<group>"; };
 		F0C572432095CA4900EACDBF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		F0C572462095CAB700EACDBF /* MotionTracker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = MotionTracker.h; sourceTree = "<group>"; };
-		F0C572472095CAB700EACDBF /* MotionTracker.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = MotionTracker.mm; sourceTree = "<group>"; };
 		F0C5724A2095D0C000EACDBF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		F0C5724C2095D0C600EACDBF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		F0C5724E2095D0CA00EACDBF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -136,8 +133,6 @@
 				F01BEE18207EDD8200131EB6 /* ViewController.m */,
 				F0DC409820982F470042FB05 /* FMNetwork.h */,
 				F0DC409920982F470042FB05 /* FMNetwork.m */,
-				F0C572462095CAB700EACDBF /* MotionTracker.h */,
-				F0C572472095CAB700EACDBF /* MotionTracker.mm */,
 				F01A6E5B20983F4F00FFA5B0 /* InsultTwoPanelTwo.jpg */,
 				F01BEE1A207EDD8200131EB6 /* Main.storyboard */,
 				F01BEE1D207EDD8200131EB6 /* Assets.xcassets */,
@@ -288,7 +283,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0C572482095CAB700EACDBF /* MotionTracker.mm in Sources */,
 				F01BEE19207EDD8200131EB6 /* ViewController.m in Sources */,
 				F01BEE16207EDD8200131EB6 /* AppDelegate.m in Sources */,
 				F045289020980CDE00C5B86D /* FMImageProcessor.m in Sources */,

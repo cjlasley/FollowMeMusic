@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "FMNetwork.h"
 
 @implementation ViewController
 
@@ -28,7 +29,21 @@
 
 - (IBAction)dankButtonPressed: (id)sender
 {
+    NSString *filePath;
+    
     [videoCamera start];
+    filePath = [[NSBundle mainBundle] pathForResource:@"InsultTwoPanelTwo" ofType:@"jpg"];
+    FMNetwork *uploader = [[FMNetwork alloc] initWithURL:[NSURL URLWithString:@"http://172.20.10.2:5000/upload"] filePath:filePath delegate:self doneCallback:@selector(onUploadDone) errorCallback:@selector(onUploadError)];
+}
+
+-  (void)onUploadDone
+{
+    printf("Upload is done!\n");
+}
+
+- (void)onUploadError
+{
+    printf("Upload encountered an error!\n");
 }
 
 - (void)processImage:(cv::Mat&)theImage

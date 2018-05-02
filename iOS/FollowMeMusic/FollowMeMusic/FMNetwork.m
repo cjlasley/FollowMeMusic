@@ -74,14 +74,10 @@ static NSString * const FORM_FLE_INPUT = @"shent";
 {
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:theURL];
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setValue: [NSString stringWithFormat:@"multipart/form-data; boundary=%@", theBoundry] forHTTPHeaderField:@"Content-Type"];
     
-    NSMutableData *postData = [NSMutableData dataWithCapacity:[theData length] + 512];
-    [postData appendData: [[NSString stringWithFormat:@"--%@\r\n", theBoundry] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postData appendData: [[NSString stringWithFormat: @"Content-Disposition: form-data; name=\"%@\"; filename=\"file.bin\"\r\n\r\n", FORM_FLE_INPUT] dataUsingEncoding:NSUTF8StringEncoding]];
+    NSMutableData *postData = [NSMutableData dataWithCapacity:[theData length] /*+ 512*/];
     
     [postData appendData:theData];
-    [postData appendData: [[NSString stringWithFormat:@"\r\n--%@--\r\n", theBoundry] dataUsingEncoding:NSUTF8StringEncoding]];
     
     [urlRequest setHTTPBody:postData];
     return urlRequest;
