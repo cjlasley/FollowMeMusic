@@ -1,5 +1,6 @@
 # import os
 import external_qr_to_human as qth
+import osascript
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -24,6 +25,8 @@ def upload_file():
         app.spatialVolume = qth.SpatialQR("raw_cv.jpg")
         return -1
     volume = app.spatialVolume.getDistanceToVolume("raw_cv.jpg")
+    if volume != -1:
+        osascript.osascript("set volume output volume " + str(volume))
     return str(volume)
 
 
