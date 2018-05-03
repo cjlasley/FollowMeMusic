@@ -14,7 +14,6 @@ void loop() {
       int level = Serial.parseInt();
       if (Serial.find(";")) {
         updateLights(level);
-        // analogWrite(pin, level);
         char buf[50];
         sprintf(buf, "Wrote %d to %d\n", level, pin);
         Serial.write(buf);

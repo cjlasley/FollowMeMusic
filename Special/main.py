@@ -13,7 +13,7 @@ if __name__ == '__main__':
 	rate, samples = scipy.io.wavfile.read(argv[2])
 	frequencies, times, spectrogram = signal.spectrogram(samples, rate)
 	times = times[::2].tolist()
-	spec = spectrogram[1][::2].tolist()
+	spec = spectrogram[1][::2]
 	print("START!")
 	start = time()
 	system('open ' + argv[2])
@@ -24,4 +24,5 @@ if __name__ == '__main__':
 		print("Offset by " + str((time() - start) - freq_time))
 		volume = spec[i]
 		level = max(int(255 * (volume / max(spec)) - 20), 0)
+		print(level)
 		lights.set(2, level)
