@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/holo_green_dark"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -9,40 +10,89 @@
     <!-- XML JavaCameraView Initialization -> used in MainActivity.java -->
     <org.opencv.android.JavaCameraView
         android:id="@+id/myCameraView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="336dp"
+        android:layout_height="459dp"
+        android:layout_centerInParent="true"
         app:show_fps="true" />
 
     <Button
-        android:id="@+id/btnGallary"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnMusic"
+        android:layout_width="172dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:onClick="openGallery"
-        android:layout_marginBottom="48dp"
-        android:layout_marginStart="31dp"
-        android:text="@string/btnGallery" />
+        android:layout_alignEnd="@+id/myCameraView"
+        android:layout_alignTop="@+id/btnGallary"
+        android:background="@android:color/holo_green_light"
+        android:onClick="openMusic"
+        android:text="@string/btnMusic"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnGallary"
+        android:layout_width="172dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnGallary"
-        android:onClick="convertToGrayscale"
-        android:layout_marginEnd="33dp"
-        android:text="@string/btnGray" />
+        android:layout_alignBottom="@+id/myCameraView"
+        android:layout_alignStart="@+id/myCameraView"
+        android:background="@android:color/holo_green_light"
+        android:text="Follow Me"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="151dp"
-        android:layout_height="158dp"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="133dp"
-        app:srcCompat="@mipmap/ic_launcher" />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="239dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
+        android:text="Follow Me Music"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        tools:layout_editor_absoluteX="73dp"
+        tools:layout_editor_absoluteY="63dp" />
+
+    <!--<Button-->
+        <!--android:id="@+id/btnGallary"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginBottom="45dp"-->
+        <!--android:onClick="openGallery"-->
+        <!--android:text="@string/btnGallery" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignTop="@+id/btnGallary"-->
+        <!--android:onClick="convertToGrayscale"-->
+        <!--android:text="@string/btnGray" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnMusic"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignTop="@+id/btnGallary"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:onClick="openMusic"-->
+        <!--android:text="@string/btnMusic" />-->
 
 </RelativeLayout>
